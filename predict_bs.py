@@ -311,6 +311,9 @@ for coli in colors:
         condprob[coli][traki] = probCorr2( coli, traki, probprod, Probs, classcorr)
 
 
+condprob.to_csv(
+    env.strStorEspr + '_'.join([ '/condprob', strRegg, 'N'+str(N), 'M'+str(M) ])+'.csv')
+    
 
 
 ########
@@ -426,6 +429,8 @@ pd.DataFrame(ttpred).to_csv( env.strStorEspr +'_'.join([ '/SV_ttc', strRegg, 'N'
 pd.DataFrame(ttpred).to_csv( env.strStorEspr +'_'.join([ '/SV_ttc', strRegg, 'N'+str(N), 'M'+str(M) ])+'.csv'
                             , index=False)
 
+pd.DataFrame(pp).to_csv( env.strStorEspr +'_'.join([ '/predictedbs', strRegg, 'N'+str(N), 'M'+str(M) ])+'.csv'
+                            , index=False)
 
 
 ### average tracks

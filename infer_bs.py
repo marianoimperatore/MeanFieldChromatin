@@ -17,7 +17,6 @@ import scipy as spy
 from scipy.ndimage import gaussian_filter
 from scipy.interpolate import interp1d
 import pandas as pd
-from numba import njit, vectorize
 import random
 import pdb
 import re
@@ -40,7 +39,7 @@ import setInvDict as invdict
 
 
 if False:
-    strcmd = '$HOME/inverse/infer_bs.py nod:1,30,40,4,12345 reg:GSC275B,C88bex2,5000,missingRegions param:6 cfmax:.8,1 pct:99.6,99.9 filt:.5'
+    strcmd = '$HOME/inverse/infer_bs.py nod:1,30,40,4,12345 reg:GSC275B,C88bex2,5000,missingRegions param:12 cfmax:.8,1 filt:.5'
     sys.argv = re.split( ' +', strcmd)
     
 
@@ -68,10 +67,14 @@ for argvl in sys.argv[1:]:
         resstr = argvls2[2]
         res = int(argvls2[2])
 
-        strInputType = argvls2[3]
-        Cnanflag = 'nanlow'
+        if len(argvls2) > 3:
+            strInputType = argvls2[3]
+        else:
+            strInputType = 'allregions'
+        Cnanflag = 'nanlow' # 'nanhigh'
         Clowpp = 5
-
+        Chighpp = 95
+        
         continue
     
     if argvls1=='param':
@@ -305,17 +308,6 @@ for gridsli in gridsl:
     ####
     nzd = 1
     cfmax = gridsli[ 1 ]
-    
-    # 
-    CCcorrl = []
-    for idpct, pcti in enumerate(pctv):
-        CCcorr = np.copy( CCf) * R2
-        # why there's 0s and nans?
-        # CCcorr = np.where( np.isnan(CCcorr), 0, CCcorr)
-        
-        CCpct = np.percentile( CCcorr, pcti)
-        CCcorr[ CCcorr > CCpct] = np.nan
-        CCcorrl += [CCcorr]
 
     # 
     CCd = np.copy( CCf)
