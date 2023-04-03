@@ -1,2 +1,2 @@
-## Heteropolymers MEAN FIELD approach to infer and predict CHROMATIN sites of protein binding
+## Heteropolymers Mean Field approach to infer and predict Chromatin sites of protein binding
 
