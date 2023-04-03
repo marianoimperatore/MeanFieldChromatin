@@ -1,2 +1,2 @@
-# MeanFieldChromatin
-Heteropolymers MEAN FIELD approach to infer and predict CHROMATIN sites of protein binding
+## Heteropolymers MEAN FIELD approach to infer and predict CHROMATIN sites of protein binding
+
