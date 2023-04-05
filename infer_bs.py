@@ -116,7 +116,7 @@ try:
     
     
 except:    
-    CC = pd.read_csv( re.sub('.mcool','-',fncool)+ regg +'.csv', index_col=False).values
+    CC = pd.read_csv( 'data/' + re.sub('.mcool','-',fncool)+ regg +'.csv', index_col=False).values
 
 
 
