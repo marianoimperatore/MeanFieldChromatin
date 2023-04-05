@@ -12,7 +12,7 @@ scripts have been tested for:
 ### Inference of the best binding sites distribution
 to run the script launch the following command:
 
-$ infer_bs.py nod:1,30,40,4,12345 reg:GSC275B,C88bex2,5000 param:12 cfmax:0.8,1 filt:.5
+$ python infer_bs.py nod:1,30,40,4,12345 reg:GSC275B,C88bex2,5000 param:12 cfmax:0.8,1 filt:.5
 
 - reg:GSC275B,C88bex2,5000 : the script will read the region identified as 'C88bex2' in file setInvDict.py from sample GSC275B with resolution 5kbp (Hi-C matrix 'data/GSC275B-Arima-allReps-filtered-GSC275B+C88bex2+5000.csv' from chr12:57.66-58.33 Mbp)
 - param:12 : the simulated annealing procedure (SA) will minimize the loss function using 12 monomer classes (11 bs classes + 1 class of inert polymer sites)
