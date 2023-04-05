@@ -333,7 +333,7 @@ for gridsli in gridsl:
     
     
     # extend the profiles according to power law up to a scaling constant
-    NRscal = alpscal * NR
+    NRscal = int(np.ceil(alpscal * NR))
     
     sshape = PcvO.shape[0]
     if NR > sshape:
