@@ -5,7 +5,7 @@ This framework is composed by two main scripts:
 
 ### Requirements
 scripts have been tested for:
-- pandas 1.3.4, numpy 1.21.3, scipy 1.8.0, seaborn 0.11.2
+- pandas 1.3.4, numpy 1.21.3, scipy 1.8.0, seaborn 0.11.2, cooler 0.8.11
 - python 3.9.0
 - Unix environment
 
