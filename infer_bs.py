@@ -110,13 +110,13 @@ for argvl in sys.argv[1:]:
 
 # fetch matrix
 try:
-    c = cooler.Cooler( env.strStorEspr + fncool,root='/resolutions/'+ resstr)
+    c = cooler.Cooler( env.strData + fncool,root='/resolutions/'+ resstr)
     # resolution = c.binsize
     CC = c.matrix(balance=True).fetch( chrcoo )
     
     
 except:    
-    CC = pd.read_csv( 'data/' + re.sub('.mcool','-',fncool)+ regg +'.csv', index_col=False).values
+    CC = pd.read_csv( env.strData + re.sub('.mcool','-',fncool)+ regg +'.csv', index_col=False).values
 
 
 
@@ -169,10 +169,10 @@ sijN = np.tril( sijN )+ np.tril(sijN).T
 # ### process input simul matrix
 # =============================================================================
 
-PcvC = pd.read_csv( env.strStorEspr + 'globulePhase_polymerContactProbabilityProfile.csv'
+PcvC = pd.read_csv( env.strData + 'globulePhase_polymerContactProbabilityProfile.csv'
                   , sep=',', index_col=None)
 
-PcvO = pd.read_csv( env.strStorEspr + 'coilPhase_polymerContactProbabilityProfile.csv'
+PcvO = pd.read_csv( env.strData + 'coilPhase_polymerContactProbabilityProfile.csv'
                   , sep=',', index_col=None)
 
 
@@ -784,7 +784,7 @@ for gridsli in gridsl:
         # =============================================================================
         if nsavi == nsave:
             nsavi = 0
-            resultspd.to_csv( env.strStorEspr + 'resultspd_'+regg+'_N'+str(N)+'_M'+str(M)+'_id'+str(nodid)+'.csv.gz'
+            resultspd.to_csv( env.strHome + 'resultspd_'+regg+'_N'+str(N)+'_M'+str(M)+'_id'+str(nodid)+'.csv.gz'
                              , sep = ',', header=True, index=False, compression='gzip' )
     
         else :
@@ -795,7 +795,7 @@ for gridsli in gridsl:
 # =============================================================================
 # Final save
 # =============================================================================
-resultspd.to_csv( env.strStorEspr + 'resultspd_'+regg+'_N'+str(N)+'_M'+str(M)+'_id'+str(nodid)+'.csv.gz'
+resultspd.to_csv( env.strHome + 'resultspd_'+regg+'_N'+str(N)+'_M'+str(M)+'_id'+str(nodid)+'.csv.gz'
                  , sep = ',', header=True, index=False, compression='gzip' )
 
     

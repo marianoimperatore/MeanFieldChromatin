@@ -8,5 +8,5 @@ Created on Wed Apr  7 18:01:35 2021
 
 # env settings
 strHome = '.'
-strStorEspr = '.'    
+strData = 'data/'    
 
