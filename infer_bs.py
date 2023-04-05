@@ -25,11 +25,6 @@ import importlib
 import warnings
 warnings.filterwarnings("ignore")
 
-#### import simulation settings
-if False:
-    os.chdir( '/usr/users/mariano/inverse' )
-    
-    
 
 import esprenv as env
 import funinv as func0
@@ -38,10 +33,6 @@ import setInvDict as invdict
 
 
 
-if False:
-    strcmd = '$HOME/inverse/infer_bs.py nod:1,30,40,4,12345 reg:GSC275B,C88bex2,5000,missingRegions param:12 cfmax:.8,1 filt:.5'
-    sys.argv = re.split( ' +', strcmd)
-    
 
 
 
@@ -802,4 +793,8 @@ resultspd.to_csv( env.strHome + 'resultspd_'+regg+'_N'+str(N)+'_M'+str(M)+'_id'+
 
 
 
+    
+
+    
+    
 
