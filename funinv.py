@@ -630,46 +630,52 @@ def profPlot( MM, mom=['minmax'], flag='plot'):
 
 def buildScaling( NR, alpscal, sij, strPh='interpolate'):
     
-    PcvC = pd.read_csv( env.strStorage2 + '/SA/' + 'ContactProb-fractal-globule--N512----CR-0.50CG-10.00--ER-2.0EG-0.0--.csv'
-                      , sep=',', index_col=None
-                      , names=['s','Pc'], header=0 )
     
-    PcvO = pd.read_csv( env.strStorage2 + '/SA/' + 'ContactProb-fractal-globule--N512----CR-1.00CG-10.00--ER-2.0EG-0.0--.csv'
-                      , sep=',', index_col=None
-                      , names=['s','Pc'], header=0 )
+    PcvC = pd.read_csv( env.strData + 'globulePhase_polymerContactProbabilityProfile.csv'
+                      , sep=',', index_col=None)
     
+    PcvO = pd.read_csv( env.strData + 'coilPhase_polymerContactProbabilityProfile.csv'
+                      , sep=',', index_col=None)
     
     
+
+
     # extend the profiles according to power law up to a scaling constant
-    NRscal = alpscal * NR
+    NRscal = int(np.ceil(alpscal * NR))
+    
+    sshape = PcvO.shape[0]
+    if NR > sshape:
+        ## extend profile to NR number of monomers if needed
+        #
+        gammO = -2.1
+        PcvOcorrc = pd.DataFrame(
+        data={
+            'Pc' : np.arange( sshape, NRscal, 1.) ** gammO  * PcvO['Pc'].values[ sshape ] /  (sshape) ** gammO ,
+            's' : np.arange( sshape, NRscal, 1.)
+            })
+        
+        # join back
+        PcvOcorrc = PcvO.iloc[:sshape-1].append(  PcvOcorrc )
+        
+        
+        #     
+        gammG = 0
+        PcvGcorrc = pd.DataFrame(
+        data={
+            'Pc' : np.arange( sshape, NRscal, 1.) ** gammG  * PcvC['Pc'].values[ sshape ] /  (sshape) ** gammG ,
+            's' : np.arange( sshape, NRscal, 1.)
+            })    
+        
+        # join back
+        PcvGcorrc = PcvC.iloc[:sshape-1].append(  PcvGcorrc )
     
     
-    #
-    openStartBead = 120
-    gammO = -2.1
-    PcvOcorrc = pd.DataFrame(
-    data={
-        'Pc' : np.arange( openStartBead, NRscal, 1.) ** gammO  * PcvO['Pc'].values[ openStartBead ] /  (openStartBead) ** gammO ,
-        's' : np.arange( openStartBead, NRscal, 1.)
-        })
+    else:
+        PcvOcorrc = PcvO.iloc[:NRscal-1]
+        PcvGcorrc = PcvC.iloc[:NRscal-1]
+            
     
-    # join back
-    PcvOcorrc = PcvO.iloc[:openStartBead-1].append(  PcvOcorrc )
-    
-    
-    #     
-    globStartBead = 220
-    gammG = 0
-    PcvGcorrc = pd.DataFrame(
-    data={
-        'Pc' : np.arange( globStartBead, NRscal, 1.) ** gammG  * PcvC['Pc'].values[ globStartBead ] /  (globStartBead) ** gammG ,
-        's' : np.arange( globStartBead, NRscal, 1.)
-        })    
-    
-    # join back
-    PcvGcorrc = PcvC.iloc[:globStartBead-1].append(  PcvGcorrc )
-    
-    
+
     
     
     # scale the non-universal small-scale part of the curve
