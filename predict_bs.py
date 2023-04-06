@@ -49,7 +49,7 @@ M = 12
 if strSampl == '148':
         
     strRegg = 'GSC275B+C88bex2+5000'
-    strRegg2 = 'GSC275B'
+    strRegg2 = 'GSC148'
     
 elif strSampl == '394B':
 
