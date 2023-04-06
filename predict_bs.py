@@ -57,7 +57,7 @@ elif strSampl == '394B':
     strRegg2 = 'GSC394B'
     
 
-svfile = env.strStorEspr + '/data/SV_mapOrient_GSC'+strSampl+'+C88bex2+5000_M'+str(M)
+svfile = env.strData + '/SV_mapOrient_GSC'+strSampl+'+C88bex2+5000_M'+str(M)
 
 
 
@@ -65,15 +65,15 @@ svfile = env.strStorEspr + '/data/SV_mapOrient_GSC'+strSampl+'+C88bex2+5000_M'+s
 # Read tracks for estimation of probability normalization
 # =============================================================================
 # 148
-K27ac21 = np.genfromtxt( env.strStorEspr + 'data/' + '_'.join([ 'h3k27+inferenceRegion+avg', 'GSC148',str(bpres) ])+'.csv', delimiter=',' )
-RNAseq21 = np.genfromtxt( env.strStorEspr + 'data/' + '_'.join([ 'rnaseq+inferenceRegion+avg', 'GSC148',str(bpres) ])+'.csv' , delimiter=',' )
-K27ac2P1 = np.genfromtxt( env.strStorEspr + 'data/' + '_'.join([ 'h3k27+predictionRegion+avg', 'GSC148',str(bpres) ])+'.csv', delimiter=',' )
-RNAseq2P1 = np.genfromtxt( env.strStorEspr + 'data/' + '_'.join([ 'rnaseq+predictionRegion+avg', 'GSC148',str(bpres) ])+'.csv', delimiter=',' )
+K27ac21 = np.genfromtxt( env.strData + '_'.join([ 'h3k27+inferenceRegion+avg', 'GSC148',str(bpres) ])+'.csv', delimiter=',' )
+RNAseq21 = np.genfromtxt( env.strData + '_'.join([ 'rnaseq+inferenceRegion+avg', 'GSC148',str(bpres) ])+'.csv' , delimiter=',' )
+K27ac2P1 = np.genfromtxt( env.strData + '_'.join([ 'h3k27+predictionRegion+avg', 'GSC148',str(bpres) ])+'.csv', delimiter=',' )
+RNAseq2P1 = np.genfromtxt( env.strData + '_'.join([ 'rnaseq+predictionRegion+avg', 'GSC148',str(bpres) ])+'.csv', delimiter=',' )
 # 394B
-K27ac22 = np.genfromtxt( env.strStorEspr + 'data/' + '_'.join([ 'h3k27+inferenceRegion+avg', 'GSC394B',str(bpres) ])+'.csv', delimiter=',' )
-RNAseq22 = np.genfromtxt( env.strStorEspr + 'data/' + '_'.join([ 'rnaseq+inferenceRegion+avg', 'GSC394B',str(bpres) ])+'.csv' , delimiter=',' )
-K27ac2P2 = np.genfromtxt( env.strStorEspr + 'data/' + '_'.join([ 'h3k27+predictionRegion+avg', 'GSC394B',str(bpres) ])+'.csv', delimiter=',' )
-RNAseq2P2 = np.genfromtxt( env.strStorEspr + 'data/' + '_'.join([ 'rnaseq+predictionRegion+avg', 'GSC394B',str(bpres) ])+'.csv', delimiter=',' )
+K27ac22 = np.genfromtxt( env.strData + '_'.join([ 'h3k27+inferenceRegion+avg', 'GSC394B',str(bpres) ])+'.csv', delimiter=',' )
+RNAseq22 = np.genfromtxt( env.strData + '_'.join([ 'rnaseq+inferenceRegion+avg', 'GSC394B',str(bpres) ])+'.csv' , delimiter=',' )
+K27ac2P2 = np.genfromtxt( env.strData + '_'.join([ 'h3k27+predictionRegion+avg', 'GSC394B',str(bpres) ])+'.csv', delimiter=',' )
+RNAseq2P2 = np.genfromtxt( env.strData + '_'.join([ 'rnaseq+predictionRegion+avg', 'GSC394B',str(bpres) ])+'.csv', delimiter=',' )
 
 
 maxchrrefsamptargrseq= np.maximum( 
@@ -96,10 +96,10 @@ maxchrrefsamptargk27 = np.maximum(
 # =============================================================================
 # Load tracks for binding sites inference and prediction
 # =============================================================================
-K27ac2 = np.genfromtxt( env.strStorEspr + 'data/' + '_'.join([ 'h3k27+inferenceRegion+avg', strRegg2,str(bpres) ])+'.csv', delimiter=',' )
-RNAseq2 = np.genfromtxt( env.strStorEspr + 'data/' + '_'.join([ 'rnaseq+inferenceRegion+avg',strRegg2,str(bpres) ])+'.csv' , delimiter=',' )
-K27acP2 = np.genfromtxt( env.strStorEspr + 'data/' + '_'.join([ 'h3k27+predictionRegion+avg',strRegg2,str(bpres) ])+'.csv', delimiter=',' )
-RNAseqP2 = np.genfromtxt( env.strStorEspr + 'data/' + '_'.join([ 'rnaseq+predictionRegion+avg', strRegg2,str(bpres) ])+'.csv', delimiter=',' )
+K27ac2 = np.genfromtxt( env.strData + '_'.join([ 'h3k27+inferenceRegion+avg', strRegg2,str(bpres) ])+'.csv', delimiter=',' )
+RNAseq2 = np.genfromtxt( env.strData + '_'.join([ 'rnaseq+inferenceRegion+avg',strRegg2,str(bpres) ])+'.csv' , delimiter=',' )
+K27acP2 = np.genfromtxt( env.strData + '_'.join([ 'h3k27+predictionRegion+avg',strRegg2,str(bpres) ])+'.csv', delimiter=',' )
+RNAseqP2 = np.genfromtxt( env.strData + '_'.join([ 'rnaseq+predictionRegion+avg', strRegg2,str(bpres) ])+'.csv', delimiter=',' )
 
 
 
@@ -113,7 +113,7 @@ RNAseqP2 = np.genfromtxt( env.strStorEspr + 'data/' + '_'.join([ 'rnaseq+predict
 # =============================================================================
 
 
-fn = '_'.join([ env.strStorEspr + 'data/bestInference', strRegg, 'N'+str(N), 'M'+str(M) ]) + '.csv'
+fn = '_'.join([ env.strData + 'bestInference', strRegg, 'N'+str(N), 'M'+str(M) ]) + '.csv'
 beststar = pd.read_csv(fn,  sep = ',', index_col=False)    
 ##
 R= beststar.R.values[0]
@@ -172,7 +172,7 @@ ax.set_yticklabels(['0','0.5','1'])
 fig.tight_layout()
 
 
-plt.savefig( env.strStorEspr + '_'.join([ '/track+ref+ext_dense', strRegg, 'N'+str(N), 'M'+str(M) ])+'.svg', 
+plt.savefig( env.strHome + '_'.join([ '/track+ref+ext_dense', strRegg, 'N'+str(N), 'M'+str(M) ])+'.svg', 
             format='svg', dpi=500 ) 
 
 
@@ -237,7 +237,7 @@ type2color = type2color.append( t2c )
 
 ##  
 fig.tight_layout()
-plt.savefig( env.strStorEspr +'_'.join([ '/track+ref_full', strRegg, 'N'+str(N), 'M'+str(M) ])+'.svg', 
+plt.savefig( env.strHome +'_'.join([ '/track+ref_full', strRegg, 'N'+str(N), 'M'+str(M) ])+'.svg', 
             format='svg', dpi=500 ) 
 
 
@@ -261,7 +261,7 @@ ax.set_yticks([0,.5,1])
 ax.set_yticklabels(['0','0.5','1'])
 fig.tight_layout()
 
-plt.savefig( env.strStorEspr +'_'.join([ '/track+ref_dense', strRegg, 'N'+str(N), 'M'+str(M) ])+'.svg', 
+plt.savefig( env.strHome +'_'.join([ '/track+ref_dense', strRegg, 'N'+str(N), 'M'+str(M) ])+'.svg', 
             format='svg', dpi=500 ) 
 
 
@@ -285,7 +285,7 @@ classes['rnaseq'] = RNAseq2/maxchrrefsamptargrseq
 classcorr = classes.corr(method='pearson')
 
 classcorr.to_csv(
-    env.strStorEspr + '_'.join([ '/classcorr', strRegg, 'N'+str(N), 'M'+str(M) ])+'.csv')
+    env.strHome + '_'.join([ '/classcorr', strRegg, 'N'+str(N), 'M'+str(M) ])+'.csv')
     
 
 
@@ -312,7 +312,7 @@ for coli in colors:
 
 
 condprob.to_csv(
-    env.strStorEspr + '_'.join([ '/condprob', strRegg, 'N'+str(N), 'M'+str(M) ])+'.csv')
+    env.strHome + '_'.join([ '/condprob', strRegg, 'N'+str(N), 'M'+str(M) ])+'.csv')
     
 
 
@@ -332,7 +332,7 @@ type2color['vmdname'][t2cmask] = listVMDname[ pdSVidx.shape[0] : pdSVidx.shape[0
 
 
 type2color.to_csv(
-    env.strStorEspr +'_'.join([ 'typ2colr', strRegg, 'N'+str(N), 'M'+str(M) ])+ '.csv'
+    env.strHome +'_'.join([ 'typ2colr', strRegg, 'N'+str(N), 'M'+str(M) ])+ '.csv'
     , index=False) 
 
 
@@ -370,7 +370,7 @@ ax = sns.heatmap( corrmap[['k27ac','rnaseq']], annot=True, fmt=".2f", vmin=-1,vm
 ax.xaxis.tick_top()
 ax.get_yaxis().set_visible(False)
 fig.tight_layout()
-plt.savefig( env.strStorEspr +'_'.join([ '/corrmap1', strRegg, 'N'+str(N), 'M'+str(M) ])+'.svg', 
+plt.savefig( env.strHome +'_'.join([ '/corrmap1', strRegg, 'N'+str(N), 'M'+str(M) ])+'.svg', 
             format='svg' ) 
 
 fig, ax = plt.subplots(figsize=(1,7))
@@ -378,12 +378,12 @@ ax = sns.heatmap( corrmap[['class']], annot=True, cmap=matplotlib.colors.ListedC
 ax.xaxis.tick_top()
 ax.get_yaxis().set_visible(False)
 fig.tight_layout()
-plt.savefig( env.strStorEspr + '_'.join([ '/corrmap2', strRegg, 'N'+str(N), 'M'+str(M) ])+'.svg', 
+plt.savefig( env.strHome + '_'.join([ '/corrmap2', strRegg, 'N'+str(N), 'M'+str(M) ])+'.svg', 
             format='svg' ) 
             
 
 
-corrmap.to_csv( env.strStorEspr + '_'.join([ '/corrmap', strRegg, 'N'+str(N), 'M'+str(M) ])+'.csv'
+corrmap.to_csv( env.strHome + '_'.join([ '/corrmap', strRegg, 'N'+str(N), 'M'+str(M) ])+'.csv'
                , index=False)
 
 # =============================================================================
@@ -424,12 +424,12 @@ for bpid, pabci in pp.iterrows():
     ttpred[:, bpid] = np.random.choice( list(range(0,Ms+1)), tenti, p=pabci)
 
 
-pd.DataFrame(ttpred).to_csv( env.strStorEspr +'_'.join([ '/SV_ttc', strRegg, 'N'+str(N), 'M'+str(M) ])+'.csv'
+pd.DataFrame(ttpred).to_csv( env.strHome +'_'.join([ '/SV_ttc', strRegg, 'N'+str(N), 'M'+str(M) ])+'.csv'
                             , index=False)
-pd.DataFrame(ttpred).to_csv( env.strStorEspr +'_'.join([ '/SV_ttc', strRegg, 'N'+str(N), 'M'+str(M) ])+'.csv'
+pd.DataFrame(ttpred).to_csv( env.strHome +'_'.join([ '/SV_ttc', strRegg, 'N'+str(N), 'M'+str(M) ])+'.csv'
                             , index=False)
 
-pd.DataFrame(pp).to_csv( env.strStorEspr +'_'.join([ '/predictedbs', strRegg, 'N'+str(N), 'M'+str(M) ])+'.csv'
+pd.DataFrame(pp).to_csv( env.strHome +'_'.join([ '/predictedbs', strRegg, 'N'+str(N), 'M'+str(M) ])+'.csv'
                             , index=False)
 
 
@@ -477,7 +477,7 @@ for trackid, tracksi in enumerate(trackAll[::-1]):
         ax[trackid].axes.get_xaxis().set_visible(False)
     
 fig.tight_layout()
-plt.savefig( env.strStorEspr + '_'.join([ '/track+pred_full', strRegg, 'N'+str(N), 'M'+str(M) ])+'.svg', 
+plt.savefig( env.strHome + '_'.join([ '/track+pred_full', strRegg, 'N'+str(N), 'M'+str(M) ])+'.svg', 
             format='svg' ) 
 
 
@@ -499,7 +499,7 @@ ax.set_ylim([0,1])
 ax.set_yticks([0,.5,1])
 fig.tight_layout()
 
-plt.savefig( env.strStorEspr + '_'.join([ '/track+pred_dense', strRegg, 'N'+str(N), 'M'+str(M) ])+'.svg', 
+plt.savefig( env.strHome + '_'.join([ '/track+pred_dense', strRegg, 'N'+str(N), 'M'+str(M) ])+'.svg', 
             format='svg' ) 
 
 
@@ -557,12 +557,12 @@ Piavg /= tenti
 alp = beststar.alp.values[0]
 funinv.plRes2( alp* Piavg + (1- alp) * Po, trackAll,  ppv=[70,100], figsiz=(6,9))    
 
-plt.savefig( env.strStorEspr +'_'.join([ '/cm+sv_pred', strRegg, 'N'+str(N), 'M'+str(M) ])+'.svg', 
+plt.savefig( env.strHome +'_'.join([ '/cm+sv_pred', strRegg, 'N'+str(N), 'M'+str(M) ])+'.svg', 
             format='svg', dpi=500 ) 
 
 
 
-pd.DataFrame(alp* Piavg + (1- alp) * Po).to_csv(env.strStorEspr +'_'.join([ '/cm+sv_pred', strRegg, 'N'+str(N), 'M'+str(M) ])+'.csv'
+pd.DataFrame(alp* Piavg + (1- alp) * Po).to_csv(env.strHome +'_'.join([ '/cm+sv_pred', strRegg, 'N'+str(N), 'M'+str(M) ])+'.csv'
                                                 , index=False)
 
 
