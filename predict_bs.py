@@ -22,7 +22,7 @@ import setInvDict as invdict
 # =============================================================================
 # General settings
 # =============================================================================
-strSampl = '148' # 394B, 148
+strSampl = '394B' # 394B, 148
 
     
 # extract the sub tracks from the sub region
